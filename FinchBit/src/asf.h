@@ -117,4 +117,5 @@
 #include <tcc.h>
 #include <tcc_callback.h>
 
+#include "pinout.h"
 #endif // ASF_H

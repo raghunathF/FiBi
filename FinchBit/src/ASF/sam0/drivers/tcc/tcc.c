@@ -611,12 +611,11 @@ enum status_code tcc_init(
 		if (!config->pins.enable_wave_out_pin[i]) {
 			continue;
 		}
-
+		
 		system_pinmux_get_config_defaults(&pin_config);
 		pin_config.mux_position = config->pins.wave_out_pin_mux[i];
 		pin_config.direction = SYSTEM_PINMUX_PIN_DIR_OUTPUT;
-		system_pinmux_pin_set_config(
-				config->pins.wave_out_pin[i], &pin_config);
+		system_pinmux_pin_set_config(config->pins.wave_out_pin[i], &pin_config);
 	}
 
 	/* Write to registers */

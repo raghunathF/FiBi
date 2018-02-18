@@ -11,8 +11,8 @@
 
 //RGB LEDs
 #define LEFT_RGB_R_PIN PIN_PA30
-#define LEFT_RGB_G_PIN PIN_PA31
-#define LEFT_RGB_B_PIN PIN_PA08
+#define LEFT_RGB_B_PIN PIN_PA31
+#define LEFT_RGB_G_PIN PIN_PA08
 
 //Motor
 #define LEFT_MOTOR_CLOCK_PIN	PIN_PA10
@@ -27,6 +27,9 @@
 //Ultra Sound Sensor
 #define US_ECHO_PIN			PIN_PA06
 #define US_TRIGGER_PIN		PIN_PA07
+
+//Power On
+#define POWER_ON_PIN		PIN_PA09
 
 //Encoder
 

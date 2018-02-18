@@ -5,7 +5,7 @@
     <ProjectVersion>7.0</ProjectVersion>
     <ToolchainName>com.Atmel.ARMGCC.C</ToolchainName>
     <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
-    <avrdevice>ATSAMD10D14AU</avrdevice>
+    <avrdevice>ATSAMD10D14AM</avrdevice>
     <avrdeviceseries>samd10</avrdeviceseries>
     <OutputType>Executable</OutputType>
     <Language>C</Language>
@@ -20,10 +20,10 @@
     <OverrideVtor>false</OverrideVtor>
     <CacheFlash>true</CacheFlash>
     <ProgFlashFromRam>true</ProgFlashFromRam>
-    <RamSnippetAddress />
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
     <UncachedRange />
     <preserveEEPROM>true</preserveEEPROM>
-    <OverrideVtorValue />
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
     <BootSegment>2</BootSegment>
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <AsfFrameworkConfig>
@@ -211,6 +211,22 @@
         <board id="board.user_board.samd10du" value="Add" config="" content-id="Atmel.ASF" />
       </framework-data>
     </AsfFrameworkConfig>
+    <avrtool>com.atmel.avrdbg.tool.samice</avrtool>
+    <avrtoolserialnumber>260106424</avrtoolserialnumber>
+    <avrdeviceexpectedsignature>0x10020100</avrdeviceexpectedsignature>
+    <avrtoolinterface>SWD</avrtoolinterface>
+    <com_atmel_avrdbg_tool_samice>
+      <ToolOptions>
+        <InterfaceProperties>
+          <SwdClock>4000000</SwdClock>
+        </InterfaceProperties>
+        <InterfaceName>SWD</InterfaceName>
+      </ToolOptions>
+      <ToolType>com.atmel.avrdbg.tool.samice</ToolType>
+      <ToolNumber>260106424</ToolNumber>
+      <ToolName>J-Link</ToolName>
+    </com_atmel_avrdbg_tool_samice>
+    <avrtoolinterfaceclock>4000000</avrtoolinterfaceclock>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -751,16 +767,34 @@
     <Compile Include="src\pinout.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\PowerOn.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\PowerOn.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\RGB_LED.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\RGB_LED.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\RGB_LED_control.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\RGB_LED_control.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\UART.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\UART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\UART_control.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\UART_control.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\UltraSound.c">

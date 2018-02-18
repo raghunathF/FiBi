@@ -6,8 +6,8 @@
  */ 
 #include <asf.h>
 #include "UART.h"
-#include "UART_control.h"
-
+//#include "UART_control.h"
+#define MAX_LIMIT_RING_BUFFER 255
 extern volatile uint8_t ring_buffer[MAX_LIMIT_RING_BUFFER];
 extern volatile uint8_t tail_ring_buffer;
 extern volatile uint8_t head_ring_buffer;
@@ -68,7 +68,6 @@ void serial_init()
 {
 	configure_usart();
 	configure_usart_callbacks();
-	
 }
 
 

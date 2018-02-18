@@ -30,8 +30,16 @@ bool update_compare_array = false;
 
 static uint8_t N_valid_compares = TOTAL_LEDS;
 
-#define CLEAR_ORB 0xC0000080 //8,30,31
+#define CLEAR_ORB 0xC0000100 //8,30,31
 
+void transfer_temp_2()
+{
+	uint8_t i;
+	for(i=0;i<TOTAL_LEDS;i++)
+	{
+		temp_compare_array[i] = temp_compare_array_2[i] ;
+	}
+}
 
 void increasing_sort_tag()
 {
@@ -60,7 +68,7 @@ void ORB_leds_off()
 {
 	//Switch off LEDs single statement
 	PortGroup *const port_base = port_get_group_from_gpio_pin(LEFT_RGB_R_PIN);
-	port_base->OUTCLR.reg = CLEAR_ORB ;
+	port_base->OUTSET.reg = CLEAR_ORB ;
 	
 }
 
@@ -79,14 +87,6 @@ void transfer_temp()
 	}
 }
 
-void transfer_temp_2()
-{
-	uint8_t i;
-	for(i=0;i<TOTAL_LEDS;i++)
-	{
-		temp_compare_array[i] = temp_compare_array_2[i] ;
-	}
-}
 
 void ORB_timer_init()
 {
@@ -227,7 +227,7 @@ void initializing_compare_array()
 {
 	temp_compare_array_2[0] = 255;//Left -- R
 	temp_compare_array_2[1] = 255;//Left  -- G
-	temp_compare_array_2[2] = 255;//Left  -- B
+	temp_compare_array_2[2] = 30;//Left  -- B
 }
 
 
@@ -248,5 +248,6 @@ void ORB_init()
 	ORB_init_array();
 	//Initialize the timer callbacks
 	ORB_timer_callbacks_init();
+	//ORB_leds_off();
 
 }
